@@ -37,6 +37,7 @@ function execute() {
         }
     }
     var input_list = input_text.split("\n");
+    document.output.textOutput.value = String();
     for (i = 0; i < input_list.length; i++) {
         if (i) {
             document.output.textOutput.value += "\n";
