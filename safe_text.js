@@ -36,8 +36,12 @@ function execute() {
             return;
         }
     }
-    for (i in input_text.split("\n")) {
-        document.output.textOutput.value += "\n" + task(input_table, i, input_key, input_flag);
+    var input_list = input_text.split("\n");
+    for (i = 0; i < input_list.length; i++) {
+        if (i) {
+            document.output.textOutput.value += "\n";
+        }
+        document.output.textOutput.value += String(task(input_table, input_list[i], input_key, input_flag));
     }
 }
 
