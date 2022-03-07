@@ -25,13 +25,13 @@ function execute() {
     var input_key = String(document.checking.key.value);
     var input_flag = Boolean(document.checking.flag.checked);
     for (i = 0; i < input_text.length; i++) {
-        if (!input_table.includes(input_text[i])) {
+        if (input_text[i] != "\n" && !input_table.includes(input_text[i])) {
             alert("Похоже, что текст содержит символы, которых нет в таблице...");
             return;
         }
     }
     for (i = 0; i < input_key.length; i++) {
-        if (!input_table.includes(input_key[i])) {
+        if (input_key[i] != "\n" && !input_table.includes(input_key[i])) {
             alert("Похоже, что ключ содержит символы, которых нет в таблице...");
             return;
         }
