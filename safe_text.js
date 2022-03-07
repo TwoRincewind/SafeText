@@ -30,7 +30,15 @@ function execute() {
             return;
         }
     }
-    document.output.textOutput.value = task(input_table, input_text, input_key, input_flag);
+    for (i = 0; i < input_key.length; i++) {
+        if (!input_table.includes(input_key[i])) {
+            alert("Похоже, что ключ содержит символы, которых нет в таблице...");
+            return;
+        }
+    }
+    for (i in input_text.split(" ")) {
+        document.output.textOutput.value += "\n" + task(input_table, i, input_key, input_flag);
+    }
 }
 
 flag_check();
