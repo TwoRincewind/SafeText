@@ -36,7 +36,7 @@ function execute() {
             return;
         }
     }
-    for (i in input_text.split(" ")) {
+    for (i in input_text.split("\n")) {
         document.output.textOutput.value += "\n" + task(input_table, i, input_key, input_flag);
     }
 }
