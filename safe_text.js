@@ -24,6 +24,9 @@ function execute() {
     var input_text = String(document.input.textInput.value);
     var input_key = String(document.checking.key.value);
     var input_flag = Boolean(document.checking.flag.checked);
+    if ((input_table.length || input_text.length || input_key.length) == 0) {
+        alert("Все значения должны быть длинее нуля!");
+    }
     for (i = 0; i < input_text.length; i++) {
         if (input_text[i] != "\n" && !input_table.includes(input_text[i])) {
             alert("Похоже, что текст содержит символы, которых нет в таблице...");
