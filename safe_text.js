@@ -39,12 +39,13 @@ function execute() {
             exec_flag = false;
         } else {
             document.input.textInput.style.borderColor = "green";
-        }
-        for (i = 0; i < input_text.length; i++) {
-            if (input_text[i] != "\n" && !input_table.includes(input_text[i])) {
-                if (text_flag) {
-                    alert("Похоже, что текст содержит символы, которых нет в таблице...");
-                    text_flag = false;
+            for (i = 0; i < input_text.length; i++) {
+                if (input_text[i] != "\n" && !input_table.includes(input_text[i])) {
+                    if (text_flag) {
+                        alert("Похоже, что текст содержит символы, которых нет в таблице...");
+                        document.input.textInput.style.borderColor = "red";
+                        text_flag = false;
+                    }
                 }
             }
         }
@@ -56,12 +57,13 @@ function execute() {
             exec_flag = false;
         } else {
             document.checking.key.style.borderColor = "green";
-        }
-        for (i = 0; i < input_key.length; i++) {
-            if (input_key[i] != "\n" && !input_table.includes(input_key[i])) {
-                if (key_flag) {
-                    alert("Похоже, что ключ содержит символы, которых нет в таблице...");
-                    key_flag = false;
+            for (i = 0; i < input_key.length; i++) {
+                if (input_key[i] != "\n" && !input_table.includes(input_key[i])) {
+                    if (key_flag) {
+                        document.checking.key.style.borderColor = "red";
+                        alert("Похоже, что ключ содержит символы, которых нет в таблице...");
+                        key_flag = false;
+                    }
                 }
             }
         }
