@@ -24,47 +24,53 @@ function execute() {
     var input_text = String(document.input.textInput.value);
     var input_key = String(document.checking.key.value);
     var input_flag = Boolean(document.checking.flag.checked);
-    var flags = 3;
+    var exec_flag = true;
     if (input_table.length == 0) {
-        alert("Введите таблицу!");
         document.table.table.style.borderColor = "red";
+        alert("Введите таблицу!");
+        exec_flag = false;
     } else {
         document.table.table.style.borderColor = "black";
     }
     {
         if (input_text.length == 0) {
-            alert("Введите текст!");
             document.input.textInput.style.borderColor = "red";
+            alert("Введите текст!");
+            exec_flag = false;
         } else {
             document.input.textInput.style.borderColor = "black";
         }
         for (i = 0; i < input_text.length; i++) {
             if (input_text[i] != "\n" && !input_table.includes(input_text[i])) {
                 alert("Похоже, что текст содержит символы, которых нет в таблице...");
+                exec_flag = false;
             }
         }
     }
     {
         if (input_key.length == 0) {
-            alert("Введите ключ!");
             document.checking.key.style.borderColor = "red";
+            alert("Введите ключ!");
+            exec_flag = false;
         } else {
             document.checking.key.style.borderColor = "black";
         }
         for (i = 0; i < input_key.length; i++) {
             if (input_key[i] != "\n" && !input_table.includes(input_key[i])) {
                 alert("Похоже, что ключ содержит символы, которых нет в таблице...");
-                return;
+                exec_flag = false;
             }
         }
     }
-    var input_list = input_text.split("\n");
-    document.output.textOutput.value = "";
-    for (i = 0; i < input_list.length; i++) {
-        if (i) {
-            document.output.textOutput.value += "\n";
+    if (exec_flag) {
+        var input_list = input_text.split("\n");
+        document.output.textOutput.value = "";
+        for (i = 0; i < input_list.length; i++) {
+            if (i) {
+                document.output.textOutput.value += "\n";
+            }
+            document.output.textOutput.value += String(task(input_table, input_list[i], input_key, input_flag));
         }
-        document.output.textOutput.value += String(task(input_table, input_list[i], input_key, input_flag));
     }
 }
 
